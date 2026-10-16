@@ -1,0 +1,20 @@
+services:
+  web:
+    build: .
+    image: khangkami/personal-site:latest
+    container_name: site
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
+
+  tunnel:
+    image: ngrok/ngrok:latest
+    container_name: tunnel
+    command: http --url=uninstall-iciness-unfasten.ngrok-free.dev web:3000
+    environment:
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+    depends_on:
+      - web
+    restart: unless-stopped

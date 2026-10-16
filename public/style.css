@@ -1,0 +1,61 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #6dd5ed);
+  background-attachment: fixed;
+  color: #222;
+  padding-top: 44px;
+}
+
+/* Banner chữ chạy từ phải sang trái */
+.ticker {
+  position: fixed; top: 0; left: 0; width: 100%; height: 44px;
+  background: #111; color: #ffd54f; overflow: hidden;
+  display: flex; align-items: center; z-index: 10;
+}
+.ticker-text {
+  white-space: nowrap; display: inline-block; padding-left: 100%;
+  animation: scroll 15s linear infinite; font-weight: 600;
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.hero { text-align: center; color: #fff; padding: 40px 16px 20px; }
+.avatar {
+  width: 160px; height: 160px; border-radius: 50%; object-fit: cover;
+  border: 5px solid #fff; box-shadow: 0 8px 24px rgba(0,0,0,.4);
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float { 50% { transform: translateY(-10px); } }
+.hero h1 { margin-top: 16px; font-size: 2.2rem; }
+.subtitle { opacity: .9; margin-top: 6px; }
+
+main { max-width: 800px; margin: 0 auto; padding: 16px; }
+.card {
+  background: rgba(255,255,255,.95); border-radius: 16px;
+  padding: 22px; margin-bottom: 18px; box-shadow: 0 6px 20px rgba(0,0,0,.2);
+  transition: transform .2s;
+}
+.card:hover { transform: translateY(-4px); }
+.card h2 { margin-bottom: 10px; color: #2a5298; }
+
+.tags span {
+  display: inline-block; background: #2a5298; color: #fff;
+  padding: 6px 14px; border-radius: 20px; margin: 4px;
+}
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+.gallery img { width: 100%; height: 160px; object-fit: cover; border-radius: 12px; }
+
+textarea {
+  width: 100%; min-height: 100px; padding: 10px; border-radius: 10px;
+  border: 1px solid #bbb; font-size: 1rem; resize: vertical;
+}
+button {
+  margin-top: 10px; padding: 10px 28px; border: 0; border-radius: 10px;
+  background: #2a5298; color: #fff; font-size: 1rem; cursor: pointer;
+}
+button:hover { background: #1e3c72; }
+#msgStatus { margin-top: 8px; font-weight: 600; }
+footer { text-align: center; color: #fff; padding: 20px; }
